@@ -35,6 +35,9 @@ dependencies:
   drizzle-kit:
     specifier: ^0.19.12
     version: 0.19.12
+  drizzle-orm:
+    specifier: ^0.28.3
+    version: 0.28.3(@types/better-sqlite3@7.6.4)(better-sqlite3@8.5.0)
   eslint:
     specifier: 8.47.0
     version: 8.47.0
@@ -798,7 +801,6 @@ packages:
     resolution: {integrity: sha512-dzrRZCYPXIXfSR1/surNbJ/grU3scTaygS0OMzjlGf71i9sc2fGyHPXXiXmEvNIoE0cGwsanEFMVJxPXmco9Eg==}
     dependencies:
       '@types/node': 20.5.0
-    dev: true
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -1475,6 +1477,72 @@ packages:
       zod: 3.22.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /drizzle-orm@0.28.3(@types/better-sqlite3@7.6.4)(better-sqlite3@8.5.0):
+    resolution: {integrity: sha512-7LwNEBJH5EFvkD0vm7RdKWDZsFP9CYR4AWN2fMwns/ezexoX3+UNoVOWGRPJf1qsj357SESldrNEueFvUDfZxA==}
+    peerDependencies:
+      '@aws-sdk/client-rds-data': '>=3'
+      '@cloudflare/workers-types': '>=3'
+      '@libsql/client': '*'
+      '@neondatabase/serverless': '>=0.1'
+      '@opentelemetry/api': ^1.4.1
+      '@planetscale/database': '>=1'
+      '@types/better-sqlite3': '*'
+      '@types/pg': '*'
+      '@types/sql.js': '*'
+      '@vercel/postgres': '*'
+      better-sqlite3: '>=7'
+      bun-types: '*'
+      knex: '*'
+      kysely: '*'
+      mysql2: '>=2'
+      pg: '>=8'
+      postgres: '>=3'
+      sql.js: '>=1'
+      sqlite3: '>=5'
+    peerDependenciesMeta:
+      '@aws-sdk/client-rds-data':
+        optional: true
+      '@cloudflare/workers-types':
+        optional: true
+      '@libsql/client':
+        optional: true
+      '@neondatabase/serverless':
+        optional: true
+      '@opentelemetry/api':
+        optional: true
+      '@planetscale/database':
+        optional: true
+      '@types/better-sqlite3':
+        optional: true
+      '@types/pg':
+        optional: true
+      '@types/sql.js':
+        optional: true
+      '@vercel/postgres':
+        optional: true
+      better-sqlite3:
+        optional: true
+      bun-types:
+        optional: true
+      knex:
+        optional: true
+      kysely:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      postgres:
+        optional: true
+      sql.js:
+        optional: true
+      sqlite3:
+        optional: true
+    dependencies:
+      '@types/better-sqlite3': 7.6.4
+      better-sqlite3: 8.5.0
     dev: false
 
   /eastasianwidth@0.2.0:

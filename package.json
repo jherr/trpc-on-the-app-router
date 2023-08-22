@@ -19,6 +19,7 @@
     "autoprefixer": "10.4.15",
     "better-sqlite3": "^8.5.0",
     "drizzle-kit": "^0.19.12",
+    "drizzle-orm": "^0.28.3",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
     "next": "13.4.16",
