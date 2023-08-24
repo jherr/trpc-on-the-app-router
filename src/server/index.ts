@@ -1,39 +1,22 @@
-import { eq } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import { migrate } from "drizzle-orm/better-sqlite3/migrator";
-import Database from "better-sqlite3";
 import { z } from "zod";
-
 import { publicProcedure, router } from "./trpc";
-
-import { todos } from "@/db/schema";
-
-const sqlite = new Database("sqlite.db");
-const db = drizzle(sqlite);
-
-migrate(db, { migrationsFolder: "drizzle" });
+import { db } from "../db/database";
+import { NewTodo, Todo, TodoUpdate } from "../db/schema";
 
 export const appRouter = router({
   getTodos: publicProcedure.query(async () => {
-    return await db.select().from(todos).all();
+    const todos = await db.selectFrom('todo').selectAll().execute();
+    return todos
   }),
-  addTodo: publicProcedure.input(z.string()).mutation(async (opts) => {
-    await db.insert(todos).values({ content: opts.input, done: 0 }).run();
+  addTodo: publicProcedure.input(z.custom<NewTodo>()).mutation(async (opts) => {
+    await db.insertInto("todo").values(opts.input).executeTakeFirstOrThrow();
     return true;
   }),
   setDone: publicProcedure
-    .input(
-      z.object({
-        id: z.number(),
-        done: z.number(),
-      })
-    )
+    .input(z.custom<TodoUpdate>())
     .mutation(async (opts) => {
-      await db
-        .update(todos)
-        .set({ done: opts.input.done })
-        .where(eq(todos.id, opts.input.id))
-        .run();
+      if(opts.input.id)
+      await db.updateTable("todo").where("todo.id",'=',opts.input.id).set(opts.input).execute()
       return true;
     }),
 });

@@ -13,25 +13,24 @@
     "@trpc/client": "^10.37.1",
     "@trpc/react-query": "^10.37.1",
     "@trpc/server": "^10.37.1",
-    "@types/node": "20.5.0",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "better-sqlite3": "^8.5.0",
-    "drizzle-kit": "^0.19.12",
-    "drizzle-orm": "^0.28.3",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "kysely": "^0.26.1",
     "next": "13.4.16",
+    "pg": "^8.11.3",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "superjson": "^1.13.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
     "zod": "^3.22.1"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.4",
-    "node-gyp": "^9.4.0"
+    "@types/node": "20.5.0",
+    "@types/pg": "^8.10.2",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7"
   }
 }

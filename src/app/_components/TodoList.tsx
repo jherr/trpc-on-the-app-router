@@ -27,7 +27,7 @@ export default function TodoList({
 
   const [content, setContent] = useState("");
 
-  return (
+    return (
     <div>
       <div className="text-black my-5 text-3xl">
         {getTodos?.data?.map((todo) => (
@@ -40,11 +40,11 @@ export default function TodoList({
               onChange={async () => {
                 setDone.mutate({
                   id: todo.id,
-                  done: todo.done ? 0 : 1,
+                  done: todo.done===false ? true : false,
                 });
               }}
             />
-            <label htmlFor={`check-${todo.id}`}>{todo.content}</label>
+            <label htmlFor={`check-${todo.id}`}>{todo.name}</label>
           </div>
         ))}
       </div>
@@ -59,7 +59,7 @@ export default function TodoList({
         <button
           onClick={async () => {
             if (content.length) {
-              addTodo.mutate(content);
+              addTodo.mutate({name:content,done:false});
               setContent("");
             }
           }}
