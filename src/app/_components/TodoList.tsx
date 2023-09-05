@@ -2,12 +2,12 @@
 import { useState } from "react";
 
 import { trpc } from "../_trpc/client";
-import { serverClient } from "../_trpc/serverClient";
+import { RouterOutputs } from "@/server";
 
 export default function TodoList({
   initialTodos,
 }: {
-  initialTodos: Awaited<ReturnType<(typeof serverClient)["getTodos"]>>;
+  initialTodos: RouterOutputs["getTodos"];
 }) {
   const getTodos = trpc.getTodos.useQuery(undefined, {
     initialData: initialTodos,
