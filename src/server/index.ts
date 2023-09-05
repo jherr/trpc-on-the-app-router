@@ -7,6 +7,7 @@ import { z } from "zod";
 import { publicProcedure, router } from "./trpc";
 
 import { todos } from "@/db/schema";
+import { inferRouterOutputs } from "@trpc/server";
 
 const sqlite = new Database("sqlite.db");
 const db = drizzle(sqlite);
@@ -39,3 +40,4 @@ export const appRouter = router({
 });
 
 export type AppRouter = typeof appRouter;
+export type RouterOutputs = inferRouterOutputs<AppRouter>;
